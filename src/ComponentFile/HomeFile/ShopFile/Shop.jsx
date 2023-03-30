@@ -16,7 +16,7 @@ const Shop = ({ data, index, addToCartFun }) => {
     quantity,
   } = data;
   //   let title = name;
-
+const defaultImg = 'https://thumbs.dreamstime.com/b/no-image-available-icon-flat-vector-no-image-available-icon-flat-vector-illustration-132482953.jpg';
 
   return (
     <div className="container">
@@ -25,7 +25,11 @@ const Shop = ({ data, index, addToCartFun }) => {
           <span>Best offer</span>
         </div>
         <div className="mediumrow">
-          <img src={img} alt="" />
+          {/* <img src={img} alt="" /> */}
+          {/* <img src={img ? img : defaultImg} alt="" /> */}
+          <img src={img} onError={(e)=>{
+            e.currentTarget.src=defaultImg;
+          }} alt="" />
           <div className="content">
             <p> <span className="ditles-style">Category</span> : {category}</p>
             {/* <p> <span className="ditles-style" title={name.slice(0,name.length)}>Name</span> : {name.length > 27 ? `${name.slice(0,27)}` : `${name.slice(0,27)}... `} </p> */}
